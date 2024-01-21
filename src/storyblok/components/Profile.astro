@@ -1,24 +1,12 @@
 ---
-import { Image } from "astro:assets";
-
-// Whats wrong with the Image Component?
+import { storyblokEditable } from '@storyblok/astro'
+const { blok } = Astro.props
 ---
 
-<section
-    class="flex flex-col container xl:px96 lg:px-48 md:24px sm:px-8 px-4 my-6 justify-center items-center"
->
-    <!-- <Image
-        src={profileImage}
-        alt="Profile"
-        class="w-20 rounded-full my-2"
-        height={60}
-        width={60}
-    /> -->
-    <h2>HEADING</h2>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-        aliquid consectetur delectus inventore, reprehenderit expedita magni
-        porro laboriosam cumque distinctio eaque ipsum voluptatibus sint,
-        nesciunt in explicabo, odio praesentium tempora.
-    </p>
+<section class="container xl:px96 lg:px-48 md:24px sm:px-8  mx-auto text-center px-4 my-6">
+    <article {...storyblokEditable(blok)} class="flex flex-col justify-center items-center">
+        <img src={blok.profile_image.filename} alt={blok.profile_heading} width={60} height={40} class="rounded-md">
+        <h1>{blok.profile_heading}</h1>
+        <p>{blok.profile_blurb}</p>
+      </article>
 </section>

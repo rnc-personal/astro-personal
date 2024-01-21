@@ -1,22 +1,35 @@
 ---
-import { Image } from 'astro:assets'
-
-// accepts Array of Images, A heading and optional wrapping for the images
-const {images, heading, wrapped} = Astro.props
-
+import { Image } from "astro:assets";
+import Divider from "../../components/Divider.astro";
+import { storyblokEditable } from "@storyblok/astro";
+const { blok, wrapped } = Astro.props;
 ---
 
-<section class="container xl:px96 lg:px-48 md:24px sm:px-8 px-4 mx-auto my-6 text-center">
-    <h2 class="text-4xl my-2">{heading}</h2>
-<div class="flex justify-center items-center gap-3" class:list={[{wrapped: true}]}>
-    {images.map((image: string) => (
-        <Image src={image} alt="image" class="icon" height={80} width={100}/>
-    ))}
+<section class="text-center">
+    <div {...storyblokEditable(blok)}>
+        <h2 class="text-4xl my-2">{blok.heading}</h2>
+        <div
+            class="flex justify-center items-center gap-3"
+            class:list={[{ wrapped: true }]}
+        >
+            {
+                blok.gallery.map((img: any) => (
+                    <Image
+                        src={img.filename}
+                        alt={img.alt}
+                        class="icon"
+                        height={60}
+                        width={60}
+                    />
+                ))
+            }
+        </div>
+        <Divider />
+    </div>
+
+    <style>
+        .wrapped {
+            flex-wrap: wrap;
+        }
+    </style>
 </section>
-
-
-<style>
-    .wrapped {
-        flex-wrap: wrap;
-    }
-</style>
