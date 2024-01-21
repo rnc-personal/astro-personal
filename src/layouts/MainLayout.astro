@@ -1,0 +1,56 @@
+---
+import NavBar from '../components/NavBar.astro'
+import Footer from '../components/Footer.astro'
+import '@fontsource/poppins';
+
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>R CHALLENGER: CV</title>
+    </head>
+    <body class="bg-slate-50">
+        <NavBar/>
+            <section>
+                <slot/>
+            </section>
+        <Footer/>
+    </body>
+
+</html>
+
+<style is:global>
+:root {
+    --heading-col: #F6CD61;
+    --pgraph-col: #151515;
+}
+
+h1, h2, h3, h4, h5, h6,  li {
+   color: var(--heading-col);
+}
+
+p {
+    color: var(--pgraph-col);
+}
+
+h1, h2, h3 {
+    font-weight: 900;
+}
+
+h4, h5, h6 {
+    font-weight: 400;
+}
+
+p {
+    font-weight: 200;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+</style>
