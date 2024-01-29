@@ -1,50 +1,69 @@
 ---
-import { storyblokEditable } from '@storyblok/astro'
- 
-const { blok } = Astro.props
-import { Image } from 'astro:assets';
+import { storyblokEditable } from "@storyblok/astro";
 
-const astro = '/img/astro.png';
-const shopify = '/img/shopify.png';
-const vue = '/img/vue.png';
-const react = '/img/react.png';
-const js = '/img/js.png';
-const django = '/img/astro.png';
-const python = '/img/python.png';
+const { blok } = Astro.props;
+import { Image } from "astro:assets";
 
-type Technology = 'astro' | 'shopify' | 'vue' | 'react' | 'js' | 'django' | 'python';
+const astro = "/img/astro.png";
+const shopify = "/img/shopify.png";
+const vue = "/img/vue.png";
+const react = "/img/react.png";
+const js = "/img/js.png";
+const django = "/img/astro.png";
+const python = "/img/python.png";
+
+type Technology =
+    | "astro"
+    | "shopify"
+    | "vue"
+    | "react"
+    | "js"
+    | "django"
+    | "python";
 type TechImageMap = Record<Technology, string>;
 
 const techImageMap: TechImageMap = {
-  astro,
-  shopify,
-  vue,
-  react,
-  js,
-  django,
-  python,
+    astro,
+    shopify,
+    vue,
+    react,
+    js,
+    django,
+    python,
 };
-
 ---
 
-<article {...storyblokEditable(blok)} class="project-content rounded-md p-2">
+<article
+    {...storyblokEditable(blok)}
+    class="project-content rounded-md p-2"
+    id="project-card"
+>
     <a href={blok.project_link.cached_url}>
-    <div class=" px-3 flex flex-col sm:items-center lg:items-start">
-    <Image src={blok.project_card_header_img.filename} alt={blok.project_card_header_img.alt} class="rounded-md" height={200} width={350}/>
-    <h2>{blok.project_name}</h2>
-    <p>{blok.project_snippet}</p>
-    <div class="tech-icons flex my-4">
-        {blok.project_tech_list.map((tech: Technology) => (
-            techImageMap[tech] && (
-                <img
-                    src={techImageMap[tech]}
-                    class="rounded-md"
-                    height={50}
-                    width={50}
-                />
-            )
-        ))}
-    </div>
-</div>
-</a>
+        <div class="px-3 flex flex-col sm:items-center lg:items-start">
+            <Image
+                src={blok.project_card_header_img.filename}
+                alt={blok.project_card_header_img.alt}
+                class="rounded-md"
+                height={200}
+                width={350}
+            />
+            <h2>{blok.project_name}</h2>
+            <p>{blok.project_snippet}</p>
+            <div class="tech-icons flex my-4">
+                {
+                    blok.project_tech_list.map(
+                        (tech: Technology) =>
+                            techImageMap[tech] && (
+                                <img
+                                    src={techImageMap[tech]}
+                                    class="rounded-md"
+                                    height={50}
+                                    width={50}
+                                />
+                            ),
+                    )
+                }
+            </div>
+        </div>
+    </a>
 </article>
