@@ -28,6 +28,7 @@ const techImageMap: TechImageMap = {
 ---
 
 <article {...storyblokEditable(blok)} class="project-content rounded-md p-2">
+    <a href={blok.project_link.cached_url}>
     <div class=" px-3 flex flex-col sm:items-center lg:items-start">
     <Image src={blok.project_card_header_img.filename} alt={blok.project_card_header_img.alt} class="rounded-md" height={200} width={350}/>
     <h2>{blok.project_name}</h2>
@@ -45,4 +46,5 @@ const techImageMap: TechImageMap = {
         ))}
     </div>
 </div>
+</a>
 </article>
