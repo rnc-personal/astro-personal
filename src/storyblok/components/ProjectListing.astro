@@ -1,3 +1,14 @@
 ---
-// Get all posts in a collection and map them out
+import { storyblokEditable } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+const { blok } = Astro.props;
 ---
+
+<section {...storyblokEditable(blok)} class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 content-center">
+    {
+        blok.projects?.map((blok: any) => {
+            return <StoryblokComponent blok={blok} />;
+        })
+    }
+</section>

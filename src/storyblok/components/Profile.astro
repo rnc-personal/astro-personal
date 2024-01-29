@@ -3,7 +3,7 @@ import { storyblokEditable } from '@storyblok/astro'
 const { blok } = Astro.props
 ---
 
-<section class="container xl:px96 lg:px-48 md:24px sm:px-8  mx-auto text-center px-4 my-6">
+<section class="mx-auto text-center px-4 my-6">
     <article {...storyblokEditable(blok)} class="flex flex-col justify-center items-center">
         <img src={blok.profile_image.filename} alt={blok.profile_heading} width={60} height={40} class="rounded-md">
         <h1>{blok.profile_heading}</h1>

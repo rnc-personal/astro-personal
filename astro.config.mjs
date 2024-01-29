@@ -22,9 +22,11 @@ export default defineConfig({
     storyblok({
         accessToken: env.STORYBLOK_TOKEN,
         components: {
+          page: 'storyblok/components/Page',
           profileheader: 'storyblok/components/Profile',
           imagegallery: 'storyblok/components/ImageGallery',
-          page: 'storyblok/components/Page',
+          projectlisting: 'storyblok/components/ProjectListing',
+          projectcard: 'storyblok/components/ProjectCard', 
         },
         apiOptions: {
           region: 'eu',
