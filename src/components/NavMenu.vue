@@ -3,7 +3,8 @@
         <div class="toggle" @click="toggleDropdown">
             <svg v-if="!showDropdown" class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M0 0h24v24H0z" fill="none" />
-                <path d="M11 11V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7z" stroke-width="4" stroke-linecap="square" />
+                <path d="M11 11V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7z" stroke-width="4"
+                    stroke-linecap="square" />
             </svg>
             <svg v-else class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M0 0h24v24H0z" fill="none" />
@@ -12,14 +13,20 @@
         </div>
     </div>
     <div class="dropdown py-2 px-6" :class="{ active: showDropdown }">
-            <div class="dropdown-inner">
-                <ul class="flex gap-2 sm:flex-col md:flex-row">
-                    <li>asdas</li>
-                    <li>asdas</li>
-                    <li>asdas</li>
-                </ul>
-            </div>
+        <div class="dropdown-inner">
+            <ul class="flex gap-2 sm:flex-col md:flex-row">
+                <a href="/profile">
+                    <li class="text-2xl">asdas</li>
+                </a>
+                <a href="/projects">
+                    <li class="text-2xl">asdas</li>
+                </a>
+                <a href="/about">
+                    <li class="text-2xl">asdas</li>
+                </a>
+            </ul>
         </div>
+    </div>
 </template>
 
 <script>
@@ -38,8 +45,6 @@ export default {
 </script>
 
 <style scoped>
-
-
 .toggle {
     cursor: pointer;
 }
@@ -77,9 +82,15 @@ export default {
         width: 100%;
         height: 100%;
     }
-    
+
     .dropdown.active {
         left: 0;
+    }
+
+    .dropdown-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 </style>
