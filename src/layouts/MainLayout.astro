@@ -15,7 +15,7 @@ import '@fontsource/poppins';
     </head>
     <body class="bg-slate-50">
         <NavBar/>
-            <main class="container xl:px96 lg:px-48 md:24px sm:px-8 px-4 mx-auto my-6 grid grid-cols-1 justify-items-center">
+            <main class="container xl:px96 lg:px-48 md:24px sm:px-8 px-4 mx-auto my-6 grid grid-cols-1 justify-items-center transition-all">
                 <slot/>
             </main>
         <Footer/>
@@ -29,8 +29,17 @@ import '@fontsource/poppins';
     --pgraph-col: #151515;
 }
 
+body {
+    overflow-x: hidden;
+}
+
+/* * {
+    border: 1px dotted red;
+} */
+
 h1, h2, h3, h4, h5, h6,  li {
    color: var(--heading-col);
+
 }
 
 p {
@@ -56,5 +65,9 @@ p {
 
 .project-content {
     border: #F6CD61 2px solid;
+}
+
+.project-tech-img {
+    height: 100%;
 }
 </style>
