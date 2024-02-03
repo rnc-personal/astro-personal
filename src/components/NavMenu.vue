@@ -1,5 +1,5 @@
 <template>
-    <div class="nav-menu">
+    <div v-if="isMobile" class="nav-menu md:hidden lg:hidden xl:hidden">
         <div class="toggle" @click="toggleDropdown">
             <svg v-if="!showDropdown" class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M0 0h24v24H0z" fill="none" />
@@ -16,13 +16,13 @@
         <div class="dropdown-inner">
             <ul class="flex gap-2 sm:flex-col md:flex-row">
                 <a href="/profile">
-                    <li class="text-2xl">asdas</li>
+                    <li class="text-2xl hover:text-white uppercase">Profile</li>
                 </a>
                 <a href="/projects">
-                    <li class="text-2xl">asdas</li>
+                    <li class="text-2xl hover:text-white uppercase">Projects</li>
                 </a>
-                <a href="/about">
-                    <li class="text-2xl">asdas</li>
+                <a href="/contact">
+                    <li class="text-2xl hover:text-white uppercase">Contact</li>
                 </a>
             </ul>
         </div>
@@ -30,16 +30,40 @@
 </template>
 
 <script>
+// Bug here when resizing the window that causes menu to pop out
 export default {
     data() {
         return {
-            showDropdown: false
+            showDropdown: true,
+            showMenu: false,
+            isResized: false
         };
     },
     methods: {
         toggleDropdown() {
+            if (!this.isResized) {
             this.showDropdown = !this.showDropdown;
+            }
+        },
+        isMobile() {
+            if (window.innerWidth <= 768) {
+                this.showDropdown = false;
+            }
         }
+    },
+    mounted() {
+        window.addEventListener('resize', () => {
+            this.isResized = true;
+            this.showDropdown = window.innerWidth >= 768;
+        });
+        this.isMobile();
+    },
+    beforeDestroy() {
+        window.removeEventListener('resize', () => {
+            this.isResized = true;
+            this.showDropdown = window.innerWidth >= 768;
+        });
+        
     }
 };
 </script>
@@ -69,11 +93,10 @@ export default {
 }
 
 .dropdown.active {
-    left: 175px;
+    left: 0;
     transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
     transform: translateX(0);
 }
-
 
 @media screen and (max-width: 768px) {
     .dropdown {
@@ -81,10 +104,6 @@ export default {
         top: 72px;
         width: 100%;
         height: 100%;
-    }
-
-    .dropdown.active {
-        left: 0;
     }
 
     .dropdown-inner {
