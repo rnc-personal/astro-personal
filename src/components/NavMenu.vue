@@ -1,3 +1,4 @@
+
 <template>
     <div class="nav-menu md:hidden lg:hidden xl:hidden">
         <div class="toggle" @click="toggleDropdown">
@@ -12,7 +13,7 @@
             </svg>
         </div>
     </div>
-    
+
     <div ref="navigation" class="dropdown py-2 px-6" :class="{ active: showDropdown }">
         <div class="dropdown-inner">
             <ul class="flex gap-2 sm:flex-col md:flex-row">
@@ -31,37 +32,42 @@
 </template>
 
 <script>
-// Bug here when resizing the window that causes menu to pop out
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
 export default {
-    data() {
-        return {
-            showDropdown: true,
-            showMenu: false,
+    setup() {
+        const showDropdown = ref(true);
+        const showMenu = ref(false);
+        const isResized = ref(false);
+
+        const toggleDropdown = () => {
+            if (!isResized.value) {
+                showDropdown.value = !showDropdown.value;
+            }
         };
-    },
-    methods: {
-        toggleDropdown() {
-            if (!this.isResized) {
-            this.showDropdown = !this.showDropdown;
+
+        const handleResize = () => {
+            showDropdown.value = window.innerWidth >= 768;
+            if (window.innerWidth === 768) {
+                showDropdown.value = false;
             }
-        }
-    },
-    mounted() {
-        this.showMenu = window.innerWidth <= 768;
-        this.showDropdown = window.innerWidth >= 768;
-        window.addEventListener('resize', () => {
-            this.showDropdown = window.innerWidth >= 768;
-            if (window.innerWidth == 768) {
-                this.showDropdown = false;
-            }
+        };
+
+        onMounted(() => {
+            showMenu.value = window.innerWidth <= 768;
+            showDropdown.value = window.innerWidth >= 768;
+            window.addEventListener('resize', handleResize);
         });
-    },
-    beforeDestroy() {
-        window.removeEventListener('resize', () => {
-            this.isResized = true;
-            this.showDropdown = window.innerWidth <= 768;
+
+        onBeforeUnmount(() => {
+            window.removeEventListener('resize', handleResize);
         });
-        
+
+        return {
+            showDropdown,
+            showMenu,
+            toggleDropdown
+        };
     }
 };
 </script>
