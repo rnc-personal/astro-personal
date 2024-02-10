@@ -88,6 +88,7 @@ export default {
     background-color: black;
     width: 100vw;
     transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+    z-index: 5;
 }
 
 .dropdown.active {
