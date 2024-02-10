@@ -1,5 +1,5 @@
 <template>
-    <div v-if="isMobile" class="nav-menu md:hidden lg:hidden xl:hidden">
+    <div class="nav-menu md:hidden lg:hidden xl:hidden">
         <div class="toggle" @click="toggleDropdown">
             <svg v-if="!showDropdown" class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M0 0h24v24H0z" fill="none" />
@@ -12,7 +12,8 @@
             </svg>
         </div>
     </div>
-    <div class="dropdown py-2 px-6" :class="{ active: showDropdown }">
+    
+    <div ref="navigation" class="dropdown py-2 px-6" :class="{ active: showDropdown }">
         <div class="dropdown-inner">
             <ul class="flex gap-2 sm:flex-col md:flex-row">
                 <a href="/profile">
@@ -36,7 +37,6 @@ export default {
         return {
             showDropdown: true,
             showMenu: false,
-            isResized: false
         };
     },
     methods: {
@@ -44,24 +44,22 @@ export default {
             if (!this.isResized) {
             this.showDropdown = !this.showDropdown;
             }
-        },
-        isMobile() {
-            if (window.innerWidth <= 768) {
-                this.showDropdown = false;
-            }
         }
     },
     mounted() {
+        this.showMenu = window.innerWidth <= 768;
+        this.showDropdown = window.innerWidth >= 768;
         window.addEventListener('resize', () => {
-            this.isResized = true;
             this.showDropdown = window.innerWidth >= 768;
+            if (window.innerWidth == 768) {
+                this.showDropdown = false;
+            }
         });
-        this.isMobile();
     },
     beforeDestroy() {
         window.removeEventListener('resize', () => {
             this.isResized = true;
-            this.showDropdown = window.innerWidth >= 768;
+            this.showDropdown = window.innerWidth <= 768;
         });
         
     }
