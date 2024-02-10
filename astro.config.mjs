@@ -27,6 +27,7 @@ export default defineConfig({
           imagegallery: 'storyblok/components/ImageGallery',
           projectlisting: 'storyblok/components/ProjectListing',
           projectcard: 'storyblok/components/ProjectCard', 
+          projectdetail: 'storyblok/components/ProjectDetail',
         },
         apiOptions: {
           region: 'eu',
