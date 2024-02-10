@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 ---
 
 <div
-    transition:animate="slide"
+    
     class="border bg-card text-card-foreground shadow-sm w-full rounded-xl overflow-hidden"
 >
     <Image
@@ -15,6 +15,8 @@ import { Image } from "astro:assets";
         width={768}
         height={200}
         class="object-cover object-center h-40 w-full"
+        id="project-card-header-img"
+        
     />
 
     <div {...storyblokEditable(blok)} class="space-y-6 px-4">
@@ -24,15 +26,16 @@ import { Image } from "astro:assets";
         <div
             class="flex items-center justify-center space-x-4 my-4 sm:justify-start"
         >
-            <a
+            <a target={blok.project_live_url.target}
                 class="bg-black hover:bg-yellow-500 hover:text-black text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
-                href={blok.project_live_url.url}
+                href=`https://${blok.project_live_url.url}`
+                
             >
                 View Project
             </a>
-            <a
+            <a target={blok.project_github_url.target}
                 class="bg-black hover:bg-yellow-500 hover:text-black text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
-                href={blok.project_github_url.url}
+                href=`https://${blok.project_github_url.url}`
             >
                 GitHub
             </a>
