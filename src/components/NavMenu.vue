@@ -38,12 +38,9 @@ export default {
     setup() {
         const showDropdown = ref(true);
         const showMenu = ref(false);
-        const isResized = ref(false);
 
         const toggleDropdown = () => {
-            if (!isResized.value) {
-                showDropdown.value = !showDropdown.value;
-            }
+            showDropdown.value = !showDropdown.value; 
         };
 
         const handleResize = () => {
@@ -69,12 +66,24 @@ export default {
             toggleDropdown
         };
     }
+
 };
+
+
 </script>
 
 <style scoped>
-.toggle {
+.plus {
     cursor: pointer;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.plus .hide {
+    opacity: 0;
+}
+
+.plus .show {
+    opacity: 1;
 }
 
 .plus,
