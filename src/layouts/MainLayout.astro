@@ -23,61 +23,62 @@ import "@fontsource/poppins";
             <slot />
         </main>
         <Footer />
-    </body><style is:global>
-        :root {
-            --heading-col: #f6cd61;
-            --pgraph-col: #151515;
-        }
+        <style is:global>
+            :root {
+                --heading-col: #f6cd61;
+                --pgraph-col: #151515;
+            }
 
-        body {
-            overflow-x: hidden;
-        }
+            body {
+                overflow-x: hidden;
+            }
 
-        /* * {
-    border: 1px dotted red;
-} */
+            /* * {
+                border: 1px dotted red;
+            } */
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        li {
-            color: var(--heading-col);
-        }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            li {
+                color: var(--heading-col);
+            }
 
-        p {
-            color: var(--pgraph-col);
-        }
+            p {
+                color: var(--pgraph-col);
+            }
 
-        h1,
-        h2,
-        h3 {
-            font-weight: 900;
-        }
+            h1,
+            h2,
+            h3 {
+                font-weight: 900;
+            }
 
-        h4,
-        h5,
-        h6 {
-            font-weight: 400;
-        }
+            h4,
+            h5,
+            h6 {
+                font-weight: 400;
+            }
 
-        p {
-            font-weight: 200;
-        }
+            p {
+                font-weight: 200;
+            }
 
-        .icon:hover {
-            transform: scale(1.1);
-            transition: transform 0.2s ease-in-out;
-        }
+            .icon:hover {
+                transform: scale(1.1);
+                transition: transform 0.2s ease-in-out;
+            }
 
-        .project-content {
-            border: #f6cd61 2px solid;
-        }
+            .project-content {
+                border: #f6cd61 2px solid;
+            }
 
-        .project-tech-img {
-            height: 100%;
-        }
-    </style>
+            .project-tech-img {
+                height: 100%;
+            }
+        </style>
+    </body>
 </html>
