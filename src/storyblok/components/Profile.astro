@@ -1,12 +1,20 @@
 ---
-import { storyblokEditable } from '@storyblok/astro'
-const { blok } = Astro.props
+import { storyblokEditable } from "@storyblok/astro";
+const { blok } = Astro.props;
 ---
 
 <section class="mx-auto text-center px-4 my-6">
-    <article {...storyblokEditable(blok)} class="flex flex-col justify-center items-center">
-        <img src={blok.profile_image.filename} alt={blok.profile_heading} width={60} height={40} class="rounded-md">
-        <h1>{blok.profile_heading}</h1>
-        <p>{blok.profile_blurb}</p>
-      </article>
+  <article
+    {...storyblokEditable(blok)}
+    class="flex flex-col justify-center items-center">
+    <img
+      src={blok.profile_image.filename}
+      alt={blok.profile_heading}
+      width={60}
+      height={40}
+      class="rounded-md"
+    />
+    <h1 class="text-black">{blok.profile_heading}</h1>
+    <p class="text-black">{blok.profile_blurb}</p>
+  </article>
 </section>

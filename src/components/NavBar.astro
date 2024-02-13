@@ -1,11 +1,16 @@
 ---
 import NavMenu from "./NavMenu.vue";
 ---
+
 <section class="bg-gray-950">
-    <div class="container xl:px96 lg:px-48 md:24px sm:px-8 px-4 mx-auto flex justify-between items-center ">
-        <a href="/">
-            <h1 class="text-7xl font-black">HEADING</h1>
-        </a>
-        <NavMenu client:only/>
-    </div>
+  <div
+    class="container xl:px96 lg:px-48 md:24px sm:px-8 px-4 mx-auto flex justify-between items-center">
+    <a href="/">
+      <h1
+        class="text-7xl font-black text-gray-50 hover:text-yellow-500 transition-colors ease-in-out">
+        HEADING
+      </h1>
+    </a>
+    <NavMenu client:only />
+  </div>
 </section>

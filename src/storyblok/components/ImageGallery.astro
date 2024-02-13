@@ -2,34 +2,25 @@
 import { Image } from "astro:assets";
 import Divider from "../../components/Divider.astro";
 import { storyblokEditable } from "@storyblok/astro";
-const { blok, wrapped } = Astro.props;
+const { blok } = Astro.props;
 ---
 
 <section class="text-center">
-    <div {...storyblokEditable(blok)}>
-        <h2 class="text-4xl my-2">{blok.heading}</h2>
-        <div
-            class="flex justify-center items-center gap-3"
-            class:list={[{ wrapped: true }]}
-        >
-            {
-                blok.gallery.map((img: any) => (
-                    <Image
-                        src={img.filename}
-                        alt={img.alt}
-                        class="icon"
-                        height={60}
-                        width={60}
-                    />
-                ))
-            }
-        </div>
-        <Divider />
+  <div {...storyblokEditable(blok)}>
+    <h2 class="text-4xl my-2 text-black">{blok.heading}</h2>
+    <div class="flex justify-center items-center gap-3 flex-wrap">
+      {
+        blok.gallery.map((img: any) => (
+          <Image
+            src={img.filename}
+            alt={img.alt}
+            class="image-mask opacity-80 hover:opacity-100 hover:transition-transform hover:scale-105 transition-opacity duration-300 ease-in-out"
+            height={80}
+            width={80}
+          />
+        ))
+      }
     </div>
-
-    <style>
-        .wrapped {
-            flex-wrap: wrap;
-        }
-    </style>
+    <Divider />
+  </div>
 </section>

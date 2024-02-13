@@ -1,42 +1,29 @@
 <template>
   <div class="nav-menu md:hidden lg:hidden xl:hidden">
     <div class="toggle" @click="toggleDropdown">
-      <svg
-        v-if="!showDropdown"
-        class="plus"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24">
+      <svg v-if="!showDropdown" class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M0 0h24v24H0z" fill="none" />
-        <path
-          d="M11 11V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7z"
-          stroke-width="4"
+        <path d="M11 11V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7z" stroke-width="4"
           stroke-linecap="square" />
       </svg>
-      <svg
-        v-else
-        class="minus"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24">
+      <svg v-else class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M0 0h24v24H0z" fill="none" />
         <path d="M19 13H5v-2h14v2z" />
       </svg>
     </div>
   </div>
 
-  <div
-    ref="navigation"
-    class="dropdown py-2 px-6"
-    :class="{ active: showDropdown }">
+  <div ref="navigation" class="dropdown py-2 px-6" :class="{ active: showDropdown }">
     <div class="dropdown-inner">
       <ul class="flex gap-2 sm:flex-col md:flex-row">
         <a href="/profile">
-          <li class="text-2xl hover:text-white uppercase">Profile</li>
+          <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Profile</li>
         </a>
         <a href="/projects">
-          <li class="text-2xl hover:text-white uppercase">Projects</li>
+          <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Projects</li>
         </a>
         <a href="/contact">
-          <li class="text-2xl hover:text-white uppercase">Contact</li>
+          <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Contact</li>
         </a>
       </ul>
     </div>
@@ -82,11 +69,6 @@ export default {
 </script>
 
 <style scoped>
-.plus {
-  cursor: pointer;
-  transition: opacity 0.5s ease-in-out;
-}
-
 .plus .hide {
   opacity: 0;
 }
@@ -100,6 +82,7 @@ export default {
   width: 48px;
   height: 48px;
   fill: #fff0f0;
+  cursor: pointer;
 }
 
 .dropdown {
