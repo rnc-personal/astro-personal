@@ -6,79 +6,78 @@ import "@fontsource/poppins";
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>R CHALLENGER: CV</title>
-        <ViewTransitions />
-    </head>
-    <body class="bg-slate-50" transition:animate="none">
-        <NavBar />
-        <main
-            class="container xl:px96 lg:px-48 md:24px sm:px-8 px-4 mx-auto my-6 grid grid-cols-1 justify-items-center transition-all"
-            transition:animate="slide"
-        >
-            <slot />
-        </main>
-        <Footer />
-        <style is:global>
-            :root {
-                --heading-col: #f6cd61;
-                --pgraph-col: #151515;
-            }
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>R CHALLENGER: CV</title>
+    <ViewTransitions />
+  </head>
+  <body class="bg-slate-50" transition:animate="none">
+    <NavBar />
+    <main
+      class="container xl:px96 lg:px-48 md:24px sm:px-8 px-4 mx-auto my-6 grid grid-cols-1 justify-items-center transition-all"
+      transition:animate="slide">
+      <slot />
+    </main>
+    <Footer />
+    <style is:global>
+      :root {
+        --heading-col: #f6cd61;
+        --pgraph-col: #151515;
+      }
 
-            body {
-                overflow-x: hidden;
-            }
+      body {
+        overflow-x: hidden;
+      }
 
-            /* * {
+      /* * {
                 border: 1px dotted red;
             } */
 
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6,
-            li {
-                color: var(--heading-col);
-            }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      li {
+        color: var(--heading-col);
+      }
 
-            p {
-                color: var(--pgraph-col);
-            }
+      p {
+        color: var(--pgraph-col);
+      }
 
-            h1,
-            h2,
-            h3 {
-                font-weight: 900;
-            }
+      h1,
+      h2,
+      h3 {
+        font-weight: 900;
+      }
 
-            h4,
-            h5,
-            h6 {
-                font-weight: 400;
-            }
+      h4,
+      h5,
+      h6 {
+        font-weight: 400;
+      }
 
-            p {
-                font-weight: 200;
-            }
+      p {
+        font-weight: 200;
+      }
 
-            .icon:hover {
-                transform: scale(1.1);
-                transition: transform 0.2s ease-in-out;
-            }
+      .icon:hover {
+        transform: scale(1.1);
+        transition: transform 0.2s ease-in-out;
+      }
 
-            .project-content {
-                border: #f6cd61 2px solid;
-            }
+      .project-content {
+        border: #f6cd61 2px solid;
+      }
 
-            .project-tech-img {
-                height: 100%;
-            }
-        </style>
-    </body>
+      .project-tech-img {
+        height: 100%;
+      }
+    </style>
+  </body>
 </html>
