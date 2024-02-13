@@ -56,16 +56,16 @@ const techImageMap: TechImageMap = {
       <p>{blok.project_snippet}</p>
     </div>
 
-    <div class="tech-icons flex my-4">
+    <div class="tech-icons flex my-4 items-center">
       {
         blok.project_tech_list.map(
           (tech: Technology) =>
             techImageMap[tech] && (
               <img
                 src={techImageMap[tech]}
-                class="rounded-md project-tech-img"
-                height={50}
-                width={50}
+                class=" project-tech-img"
+                height={40}
+                width={40}
               />
             )
         )

@@ -89,10 +89,8 @@ export default {
   position: relative;
   left: 100vw;
   list-style-type: none;
-  background-color: #fff;
   display: flex;
   align-items: flex-start;
-  background-color: black;
   width: 100vw;
   transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
   z-index: 5;
@@ -102,14 +100,16 @@ export default {
   left: 0;
   transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
   transform: translateX(0);
+
 }
 
 @media screen and (max-width: 768px) {
   .dropdown {
     position: absolute;
-    top: 72px;
+    top: 100px;
     width: 100%;
     height: 100%;
+    background-color: black;
   }
 
   .dropdown-inner {
