@@ -22,9 +22,9 @@ if (blok.cv_end) {
       <h2 class="text-4xl my-2 text-black">{blok.cv_section_heading}</h2>
     )
   }
-  <div class="container px-4 md:px-6">
+  <div class="mx-auto items-center px-4 md:px-6">
     <div
-      class="grid items-start justify-center md:grid-cols-3 sm:grid-cols-1 md:gap-8 md:items-center">
+      class="lg:grid-cols-cv-grid sm:flex lg:grid md:gap-8 sm:flex-col md:flex-row sm:text-center">
       <div class="space-y-2">
         <h3 class="text-3xl font-bold tracking-tighter sm:text-4xl">
           {blok.cv_position}
@@ -36,10 +36,10 @@ if (blok.cv_end) {
       <Divider layout="vertical" />
 
       <div class="space-y-4 md:space-y-2">
-        <ul class="grid gap-4 list-disc list-outside">
+        <ul class="grid gap-4 list-disc list-outside justify-start">
           {
             tasks.map((task) => (
-              <li class="relative pl-4 my-2">
+              <li class="pl-4 my-2">
                 <span>{task.content[0].content[0].text}</span>
               </li>
             ))
