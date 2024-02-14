@@ -1,6 +1,7 @@
 ---
 import NavBar from "../components/NavBar.astro";
 import Footer from "../components/Footer.astro";
+import NavMenu from "../components/NavMenu.vue";
 import { ViewTransitions } from "astro:transitions";
 import "@fontsource/poppins";
 ---
@@ -15,7 +16,7 @@ import "@fontsource/poppins";
     <ViewTransitions />
   </head>
   <body class="bg-slate-100" transition:animate="none">
-    <NavBar />
+    <NavMenu client:only />
     <main
       class="container sm:px-8 md:px-16 lg:px-24 xl:px-40 px-4 mx-auto my-6 grid grid-cols-1 justify-items-center transition-all"
       transition:animate="slide">
