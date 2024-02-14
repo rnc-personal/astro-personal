@@ -16,13 +16,13 @@
         <div class="nav-inner__mob">
           <ul class="flex gap-2 sm:flex-col md:flex-row">
             <a href="/profile">
-              <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Profile</li>
+              <li class="text-2xl text-gray-50 hover:text-yellow-500 uppercase">Profile</li>
             </a>
             <a href="/projects">
-              <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Projects</li>
+              <li class="text-2xl text-gray-50 hover:text-yellow-500 uppercase">Projects</li>
             </a>
             <a href="/contact">
-              <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Contact</li>
+              <li class="text-2xl text-gray-50 hover:text-yellow-500 uppercase">Contact</li>
             </a>
           </ul>
         </div>
@@ -32,13 +32,13 @@
       <div class="nav-inner">
         <ul class="flex gap-2 sm:flex-col md:flex-row">
           <a href="/profile">
-            <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Profile</li>
+            <li class="text-2xl text-gray-50 hover:text-yellow-500 uppercase">Profile</li>
           </a>
           <a href="/projects">
-            <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Projects</li>
+            <li class="text-2xl text-gray-50 hover:text-yellow-500 uppercase">Projects</li>
           </a>
           <a href="/contact">
-            <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Contact</li>
+            <li class="text-2xl text-gray-50 hover:text-yellow-500 uppercase">Contact</li>
           </a>
         </ul>
       </div>
@@ -105,4 +105,5 @@ export default {
     flex-direction: column;
     align-items: center;
   }
-}</style>
+}
+</style>
