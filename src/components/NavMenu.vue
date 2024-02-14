@@ -1,6 +1,6 @@
 <template>
   <section class="bg-gray-950">
-    <div class="container xl:px-40 lg:px-32 md:px-16 sm:px-8 px-4 mx-auto flex items-center sm: justify-around">
+    <div class="container xl:px-40 lg:px-32 md:px-16 sm:px-8 px-4 mx-auto flex items-center sm:justify-around gap-4">
       <a @click="showDropdown = false" href="/">
         <h1
           class="text-7xl leading-snug py-1 selection:font-black text-gray-50 hover:text-yellow-500 transition-colors ease-in-out">
@@ -24,13 +24,13 @@
         <div ref="navigation" class="dropdown-mob py-2 px-6" :class="{ active: showDropdown }">
           <div class="nav-inner__mob">
             <ul class="flex gap-2 sm:flex-col md:flex-row">
-              <a @click="showDropdown = false" href="/profile">
+              <a @click="forceClose" href="/profile">
                 <li class="text-2xl text-gray-50 hover:text-yellow-500 uppercase">Profile</li>
               </a>
-              <a @click="showDropdown = false" href="/projects">
+              <a @click="forceClose" href="/projects">
                 <li class="text-2xl text-gray-50 hover:text-yellow-500 uppercase">Projects</li>
               </a>
-              <a @click="showDropdown = false" href="/contact">
+              <a @click="forceClose" href="/contact">
                 <li class="text-2xl text-gray-50 hover:text-yellow-500 uppercase">Contact</li>
               </a>
             </ul>
@@ -56,14 +56,26 @@
   </section>
 </template>
 <script>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 export default {
   setup() {
     const showDropdown = ref(false);
     const toggleDropdown = () => {
       showDropdown.value = !showDropdown.value;
     };
-    return { showDropdown, toggleDropdown };
+
+    const forceClose = () => {
+      showDropdown.value = false;
+    };
+
+    onMounted(() => {
+      window.addEventListener("resize", () => {
+
+        showDropdown.value = false;
+
+      });
+    })
+    return { showDropdown, toggleDropdown, forceClose };
   }
 };
 </script>
