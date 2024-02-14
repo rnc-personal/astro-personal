@@ -1,80 +1,80 @@
 <template>
-  <div class="nav-menu md:hidden lg:hidden xl:hidden">
-    <div class="toggle" @click="toggleDropdown">
-      <svg v-if="!showDropdown" class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M11 11V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7z" stroke-width="4"
-          stroke-linecap="square" />
-      </svg>
-      <svg v-else class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M19 13H5v-2h14v2z" />
-      </svg>
+  <div>
+    <!-- Mobile navigation -->
+    <div class="nav-menu mobile-nav">
+      <div class="toggle" @click="toggleDropdown">
+        <!-- SVGs and other elements -->
+        <svg v-if="!showDropdown" class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M11 11V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7z" stroke-width="4"
+            stroke-linecap="square" />
+        </svg>
+        <svg v-else class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M19 13H5v-2h14v2z" />
+        </svg>
+      </div>
+      <div ref="navigation" class="dropdown-mob py-2 px-6" :class="{ active: showDropdown }">
+        <!-- Dropdown elements -->
+        <div class="nav-inner__mob">
+          <ul class="flex gap-2 sm:flex-col md:flex-row">
+            <a href="/profile">
+              <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Profile</li>
+            </a>
+            <a href="/projects">
+              <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Projects</li>
+            </a>
+            <a href="/contact">
+              <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Contact</li>
+            </a>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div ref="navigation" class="dropdown py-2 px-6" :class="{ active: showDropdown }">
-    <div class="dropdown-inner">
-      <ul class="flex gap-2 sm:flex-col md:flex-row">
-        <a href="/profile">
-          <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Profile</li>
-        </a>
-        <a href="/projects">
-          <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Projects</li>
-        </a>
-        <a href="/contact">
-          <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Contact</li>
-        </a>
-      </ul>
+    <!-- Desktop navigation -->
+    <div class="nav-menu desktop-nav">
+      <!-- Desktop navigation elements -->
+      <div class="nav-inner">
+        <ul class="flex gap-2 sm:flex-col md:flex-row">
+          <a href="/profile">
+            <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Profile</li>
+          </a>
+          <a href="/projects">
+            <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Projects</li>
+          </a>
+          <a href="/contact">
+            <li class="text-2xl text-gray-50 hover:text-yellow-500  uppercase">Contact</li>
+          </a>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref } from "vue";
 
 export default {
   setup() {
-    const showDropdown = ref(true);
-    const showMenu = ref(false);
+    const showDropdown = ref(false);
 
     const toggleDropdown = () => {
       showDropdown.value = !showDropdown.value;
     };
 
-    const handleResize = () => {
-      showDropdown.value = window.innerWidth >= 768;
-      if (window.innerWidth === 768) {
-        showDropdown.value = false;
-      }
-    };
-
-    onMounted(() => {
-      showMenu.value = window.innerWidth <= 768;
-      showDropdown.value = window.innerWidth >= 768;
-      window.addEventListener("resize", handleResize);
-    });
-
-    onBeforeUnmount(() => {
-      window.removeEventListener("resize", handleResize);
-    });
-
-    return {
-      showDropdown,
-      showMenu,
-      toggleDropdown,
-    };
-  },
+    return { showDropdown, toggleDropdown };
+  }
 };
 </script>
 
 <style scoped>
-.plus .hide {
-  opacity: 0;
+.mobile-nav {
+  display: none;
 }
 
-.plus .show {
-  opacity: 1;
+.desktop-nav {
+  display: block;
 }
 
 .plus,
@@ -85,31 +85,31 @@ export default {
   cursor: pointer;
 }
 
-.dropdown {
-  position: relative;
-  left: 100vw;
-  list-style-type: none;
-  display: flex;
-  align-items: flex-start;
-  width: 100vw;
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
-  z-index: 5;
-}
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: block;
+  }
 
-.dropdown.active {
-  left: 0;
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
-  transform: translateX(0);
+  .desktop-nav {
+    display: none;
+  }
 
-}
-
-@media screen and (max-width: 768px) {
-  .dropdown {
+  .dropdown-mob {
     position: absolute;
     top: 100px;
+    left: 100vw;
     width: 100%;
     height: 100%;
     background-color: black;
+    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+    z-index: 15;
+  }
+
+  .dropdown-mob.active {
+    left: 0;
+    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+    transform: translateX(0);
+
   }
 
   .dropdown-inner {
