@@ -1,9 +1,7 @@
 <template>
   <div>
-    <!-- Mobile navigation -->
     <div class="nav-menu mobile-nav">
       <div class="toggle" @click="toggleDropdown">
-        <!-- SVGs and other elements -->
         <svg v-if="!showDropdown" class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M0 0h24v24H0z" fill="none" />
           <path d="M11 11V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7z" stroke-width="4"
@@ -15,7 +13,6 @@
         </svg>
       </div>
       <div ref="navigation" class="dropdown-mob py-2 px-6" :class="{ active: showDropdown }">
-        <!-- Dropdown elements -->
         <div class="nav-inner__mob">
           <ul class="flex gap-2 sm:flex-col md:flex-row">
             <a href="/profile">
@@ -31,10 +28,7 @@
         </div>
       </div>
     </div>
-
-    <!-- Desktop navigation -->
     <div class="nav-menu desktop-nav">
-      <!-- Desktop navigation elements -->
       <div class="nav-inner">
         <ul class="flex gap-2 sm:flex-col md:flex-row">
           <a href="/profile">
@@ -51,23 +45,18 @@
     </div>
   </div>
 </template>
-
 <script>
 import { ref } from "vue";
-
 export default {
   setup() {
     const showDropdown = ref(false);
-
     const toggleDropdown = () => {
       showDropdown.value = !showDropdown.value;
     };
-
     return { showDropdown, toggleDropdown };
   }
 };
 </script>
-
 <style scoped>
 .mobile-nav {
   display: none;
@@ -116,5 +105,4 @@ export default {
     flex-direction: column;
     align-items: center;
   }
-}
-</style>
+}</style>
