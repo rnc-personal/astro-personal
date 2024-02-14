@@ -1,5 +1,13 @@
 ---
+const { layout } = Astro.props;
 ---
-<section class="container xl:px96 lg:px-48 md:24px sm:px-8 px-6 my-12">
-    <div class=" bg-slate-600 py-1 px-28 opacity-5"></div>
-</section>
+
+{
+  layout === "vertical" ? (
+    <div class=" bg-slate-600 py-28 px-1 w-1 opacity-5" />
+  ) : (
+    <section class="container xl:px96 lg:px-48 md:24px sm:px-8 px-6 my-12">
+      <div class="bg-slate-600 py-1 px-28 opacity-5" />
+    </section>
+  )
+}
