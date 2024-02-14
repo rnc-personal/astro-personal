@@ -19,7 +19,7 @@ if (blok.cv_end) {
 <div {...storyblokEditable(blok)} class="w-full text-center">
   {
     blok.cv_is_most_recent && blok.cv_section_heading !== null && (
-      <h2 class="text-4xl my-2 text-black">{blok.cv_section_heading}</h2>
+      <h2 class="text-4xl my-8 text-black">{blok.cv_section_heading}</h2>
     )
   }
   <div class="mx-auto items-center px-4 md:px-6">
@@ -36,7 +36,7 @@ if (blok.cv_end) {
       <Divider layout="vertical" />
 
       <div class="space-y-4 md:space-y-2">
-        <ul class="grid gap-4 list-disc list-outside justify-start">
+        <ul class="grid gap-1 list-disc list-outside justify-start">
           {
             tasks.map((task) => (
               <li class="pl-4 my-2">
