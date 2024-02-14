@@ -1,0 +1,43 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+let tasks = blok.cv_tasks.content[0].content;
+
+let startDate = new Date(blok.cv_start);
+let formattedStartDate = `${startDate.getDate().toString().padStart(2, "0")}/${(startDate.getMonth() + 1).toString().padStart(2, "0")}/${startDate.getFullYear()}`;
+
+if (blok.cv_end) {
+  let endDate = new Date(blok.cv_end);
+  var formattedEndDate = `${endDate.getDate().toString().padStart(2, "0")}/${(endDate.getMonth() + 1).toString().padStart(2, "0")}/${endDate.getFullYear()}`;
+} else {
+  var formattedEndDate = "Current";
+}
+---
+
+<div {...storyblokEditable(blok)} class="w-full py-12">
+  <div class="container px-4 md:px-6">
+    <div
+      class="grid items-start justify-center md:grid-cols-2 md:gap-8 md:items-center">
+      <div class="space-y-2">
+        <h3 class="text-3xl font-bold tracking-tighter sm:text-4xl">
+          {blok.cv_position}
+        </h3><p class="text-gray-500 dark:text-gray-400">
+          {formattedStartDate} - {formattedEndDate}
+        </p>
+      </div><div
+        class="w-full h-px bg-gray-100/40 md:hidden dark:bg-gray-800/40">
+      </div><div class="space-y-4 md:space-y-2">
+        <ul class="grid gap-4 list-disc list-outside">
+          {
+            tasks.map((task) => (
+              <li class="relative pl-4 after:ml-2">
+                <span>{task.content[0].content[0].text}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

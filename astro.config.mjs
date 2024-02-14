@@ -28,6 +28,7 @@ export default defineConfig({
           projectlisting: 'storyblok/components/ProjectListing',
           projectcard: 'storyblok/components/ProjectCard', 
           projectdetail: 'storyblok/components/ProjectDetail',
+          cventry: 'storyblok/components/CvEntry',
         },
         apiOptions: {
           region: 'eu',
