@@ -109,7 +109,6 @@ export default {
     left: 0;
     transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
     transform: translateX(0);
-
   }
 
   .dropdown-inner {
