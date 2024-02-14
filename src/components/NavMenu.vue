@@ -70,9 +70,7 @@ export default {
 
     onMounted(() => {
       window.addEventListener("resize", () => {
-
         showDropdown.value = false;
-
       });
     })
     return { showDropdown, toggleDropdown, forceClose };
