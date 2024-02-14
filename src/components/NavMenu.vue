@@ -74,6 +74,11 @@ export default {
   cursor: pointer;
 }
 
+.plus:hover,
+.minus:hover {
+  fill: rgb(234 179 8);
+}
+
 @media (max-width: 768px) {
   .mobile-nav {
     display: block;
