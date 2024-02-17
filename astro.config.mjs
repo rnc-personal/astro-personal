@@ -29,6 +29,7 @@ export default defineConfig({
           projectcard: 'storyblok/components/ProjectCard', 
           projectdetail: 'storyblok/components/ProjectDetail',
           cventry: 'storyblok/components/CvEntry',
+          cv_task_block: 'storyblok/components/CVTaskBlock',
         },
         apiOptions: {
           region: 'eu',

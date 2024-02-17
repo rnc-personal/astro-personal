@@ -1,9 +1,9 @@
 ---
 import Divider from "../../components/Divider.astro";
+import CVTaskBlock from "../components/CVTaskBlock.astro";
 import { storyblokEditable } from "@storyblok/astro";
 
 const { blok } = Astro.props;
-let tasks = blok.cv_tasks.content[0].content;
 
 let startDate = new Date(blok.cv_start);
 let formattedStartDate = `${startDate.getDate().toString().padStart(2, "0")}/${(startDate.getMonth() + 1).toString().padStart(2, "0")}/${startDate.getFullYear()}`;
@@ -14,6 +14,8 @@ if (blok.cv_end) {
 } else {
   var formattedEndDate = "Current";
 }
+
+// Make Taks Bullets Nested Bloks and Text Fields (Not Rich)
 ---
 
 <div {...storyblokEditable(blok)} class="w-full text-center">
@@ -38,11 +40,10 @@ if (blok.cv_end) {
       <div class="space-y-4 md:space-y-2">
         <ul class="grid gap-1 list-disc list-outside justify-start">
           {
-            tasks.map((task) => (
-              <li class="pl-4 my-2">
-                <span>{task.content[0].content[0].text}</span>
-              </li>
-            ))
+            blok.cv_nestable_task &&
+              blok.cv_nestable_task.map((task: Object) => (
+                <CVTaskBlock task={task} />
+              ))
           }
         </ul>
       </div>
