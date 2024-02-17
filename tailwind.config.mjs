@@ -4,7 +4,8 @@ export default {
 	theme: {
 		extend: {
 			gridTemplateColumns: {
-				'cv-grid': '1fr 32px 1fr',
+				'cv-grid-full': '1fr 32px 1fr',
+				'cv-grid-large': '1fr 1fr',
 			},
 		},
 		screens: {

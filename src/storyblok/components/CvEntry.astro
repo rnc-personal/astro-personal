@@ -14,8 +14,6 @@ if (blok.cv_end) {
 } else {
   var formattedEndDate = "Current";
 }
-
-// Make Taks Bullets Nested Bloks and Text Fields (Not Rich)
 ---
 
 <div {...storyblokEditable(blok)} class="w-full text-center">
@@ -26,7 +24,7 @@ if (blok.cv_end) {
   }
   <div class="mx-auto items-center px-4 md:px-6">
     <div
-      class="lg:grid-cols-cv-grid sm:flex lg:grid md:gap-8 sm:flex-col md:flex-row sm:text-center">
+      class="md:grid xl:grid-cols-cv-grid-full lg:grid-cols-cv-grid-large sm:flex md:gap-8 sm:flex-col md:flex-row sm:text-center">
       <div class="space-y-2">
         <h3 class="text-3xl font-bold tracking-tighter sm:text-4xl">
           {blok.cv_position}
