@@ -7,19 +7,16 @@ const { blok } = Astro.props;
 <section {...storyblokEditable(blok)} class="w-full py-6 md:py-12">
   <div class="container px-4 md:px-6">
     <div class="flex flex-col gap-4">
-      <div
-        class="mx-auto grid max-w-sm items-center gap-4 md:max-w-3xl lg:gap-8">
+      <div class="mx-auto grid items-center gap-4 lg:gap-8">
         <div class="space-y-2">
           <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">
-            Top Programming Languages
-          </h2><p
-            class="max-w-[500px] text-gray-500 md:text-xl/relaxed dark:text-gray-400">
-            The most popular programming languages among developers.
-          </p>
+            {blok.profile_heading != "" ? blok.profile_heading : "Skills"}
+          </h2>
         </div>
       </div>
 
-      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-2xl xl:gap-8">
+      <div
+        class="grid gap-4 w-96 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 xl:gap-8">
         {
           blok.profile_skill &&
             blok.profile_skill.map((skill: Object) => (
@@ -31,12 +28,12 @@ const { blok } = Astro.props;
   </div>
 </section>
 
-<script>
-  window.onload = function () {
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
     const bars = document.querySelectorAll("[data-target-skill]");
     bars.forEach((bar, index) => {
       setTimeout(() => {
-        const htmlBar = bar as HTMLElement | null;
+        const htmlBar = bar;
         if (htmlBar) {
           const targetSkill = htmlBar.getAttribute("data-target-skill");
           if (targetSkill) {
@@ -46,5 +43,5 @@ const { blok } = Astro.props;
         }
       }, index * 200); // delay of 200ms between each bar
     });
-  };
+  });
 </script>
