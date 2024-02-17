@@ -6,11 +6,12 @@ import { storyblokEditable } from "@storyblok/astro";
 const { blok } = Astro.props;
 
 let startDate = new Date(blok.cv_start);
-let formattedStartDate = `${startDate.getDate().toString().padStart(2, "0")}/${(startDate.getMonth() + 1).toString().padStart(2, "0")}/${startDate.getFullYear()}`;
-
+let formattedStartDate = startDate.getFullYear().toString();
 if (blok.cv_end) {
   let endDate = new Date(blok.cv_end);
-  var formattedEndDate = `${endDate.getDate().toString().padStart(2, "0")}/${(endDate.getMonth() + 1).toString().padStart(2, "0")}/${endDate.getFullYear()}`;
+  var formattedEndDate = blok.cv_end
+    ? new Date(blok.cv_end).getFullYear().toString()
+    : "Current";
 } else {
   var formattedEndDate = "Current";
 }
