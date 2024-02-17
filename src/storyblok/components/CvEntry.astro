@@ -9,7 +9,7 @@ let startDate = new Date(blok.cv_start);
 let formattedStartDate = startDate.getFullYear().toString();
 if (blok.cv_end) {
   let endDate = new Date(blok.cv_end);
-  var formattedEndDate = blok.cv_end
+  var formattedEndDate = endDate
     ? new Date(blok.cv_end).getFullYear().toString()
     : "Current";
 } else {
