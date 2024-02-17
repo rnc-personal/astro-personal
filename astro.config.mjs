@@ -30,6 +30,8 @@ export default defineConfig({
           projectdetail: 'storyblok/components/ProjectDetail',
           cventry: 'storyblok/components/CvEntry',
           cv_task_block: 'storyblok/components/CVTaskBlock',
+          profile_skills: 'storyblok/components/ProfileSkills',
+          profile_skill_block: 'storyblok/components/ProfileSkillBlock',
         },
         apiOptions: {
           region: 'eu',

@@ -1,0 +1,15 @@
+---
+const { skill } = Astro.props;
+---
+
+<div class="flex items-center space-x-4">
+  <div class="w-24">
+    <span class="font-medium">{skill.profile_skill_name}</span>
+  </div>
+  <div class="flex-1 h-4 bg-gray-100 rounded-lg">
+    <div
+      class="h-full rounded-lg bg-[#eab308] w-0 transition-all duration-500 ease-in-out"
+      data-target-skill={skill.profile_skill_rating}>
+    </div>
+  </div>
+</div>
