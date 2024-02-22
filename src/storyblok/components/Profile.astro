@@ -1,5 +1,6 @@
 ---
 import { storyblokEditable } from "@storyblok/astro";
+import Divider from "../../components/Divider.astro";
 const { blok } = Astro.props;
 ---
 
@@ -10,11 +11,13 @@ const { blok } = Astro.props;
     <img
       src={blok.profile_image.filename}
       alt={blok.profile_heading}
-      width={60}
-      height={40}
-      class="rounded-md"
+      width={64}
+      height={64}
+      style="aspect-ratio: 64 / 64; object-fit: cover;"
+      class="rounded-full overflow-hidden"
     />
     <h1 class="text-black">{blok.profile_heading}</h1>
     <p class="text-black">{blok.profile_blurb}</p>
   </article>
+  <Divider layout="horizontal" < section />
 </section>
