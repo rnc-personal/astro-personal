@@ -1,0 +1,40 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import SVG from "../../components/SVG.astro";
+const { blok } = Astro.props;
+---
+
+<div
+  {...storyblokEditable(blok)}
+  class="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-sm"
+  data-v0-t="card">
+  <div class="p-6 flex flex-col items-center space-y-2">
+    <div class="rounded-full overflow-hidden border-2 border-white w-16 h-16">
+      <img
+        src={blok.contact_image.filename}
+        width="64"
+        height="64"
+        alt="User"
+        style="aspect-ratio: 64 / 64; object-fit: cover;"
+      />
+    </div>
+
+    <div class="space-y-1 text-center">
+      <h1 class="text-lg font-semibold">{blok.contact_name}</h1>
+      <div class="flex items-center space-x-2 text-sm">
+        <SVG icon="phone" />
+        <span>{blok.contact_number}</span>
+      </div>
+
+      <div class="flex items-center space-x-2 text-sm">
+        <SVG icon="email" />
+        <span>{blok.contact_email}</span>
+      </div>
+
+      <div class="flex items-center space-x-2 text-sm">
+        <SVG icon="location" />
+        <span>{blok.contact_location}</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 <template>
   <section class="bg-gray-950">
-    <div class="container xl:px-40 lg:px-32 md:px-16 sm:px-8 px-4 mx-auto flex items-center sm:justify-around gap-4">
+    <div class="container xl:px-40 lg:px-32 md:px-16 sm:px-8 px-4 mx-auto flex items-center sm:justify-between gap-4">
       <a @click="showDropdown = false" href="/">
         <h1
           class="text-7xl leading-snug py-1 selection:font-black text-gray-50 hover:text-yellow-500 transition-colors ease-in-out">
