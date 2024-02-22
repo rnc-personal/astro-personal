@@ -32,6 +32,7 @@ export default defineConfig({
           cv_task_block: 'storyblok/components/CVTaskBlock',
           profile_skills: 'storyblok/components/ProfileSkills',
           profile_skill_block: 'storyblok/components/ProfileSkillBlock',
+          profile_skill_detail: 'storyblok/components/SkillDetailBlock',
         },
         apiOptions: {
           region: 'eu',

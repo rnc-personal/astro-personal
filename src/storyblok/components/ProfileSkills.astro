@@ -1,7 +1,7 @@
 ---
 import { storyblokEditable } from "@storyblok/astro";
-import ProfileSkillBlock from "./ProfileSkillBlock.astro";
 const { blok } = Astro.props;
+import ProfileSkillBlock from "./ProfileSkillBlock.astro";
 ---
 
 <section {...storyblokEditable(blok)} class="py-6 md:py-12">
@@ -54,7 +54,6 @@ const { blok } = Astro.props;
   document.addEventListener("astro:after-swap", () => {
     animateSkills();
   });
-  document.addEventListener("DOMContentLoaded", () => {
-    animateSkills();
-  });
+
+  animateSkills();
 </script>
