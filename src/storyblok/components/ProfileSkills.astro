@@ -29,7 +29,7 @@ const { blok } = Astro.props;
 </section>
 
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", function () {
+  const animateSkills = () => {
     const bars = document.querySelectorAll("[data-target-skill]");
     bars.forEach((bar, index) => {
       setTimeout(() => {
@@ -43,5 +43,18 @@ const { blok } = Astro.props;
         }
       }, index * 200); // delay of 200ms between each bar
     });
+    document.removeEventListener(
+      "astro:before-swap",
+      () => {
+        document.removeEventListener("astro:after-swap");
+      },
+      { once: true }
+    );
+  };
+  document.addEventListener("astro:after-swap", () => {
+    animateSkills();
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    animateSkills();
   });
 </script>
