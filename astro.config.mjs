@@ -34,6 +34,7 @@ export default defineConfig({
           profile_skill_block: 'storyblok/components/ProfileSkillBlock',
           profile_skill_detail: 'storyblok/components/SkillDetailBlock',
           contact_card: 'storyblok/components/ContactCard',
+          contact_services_block: 'storyblok/components/ContactServicesBlock',
         },
         apiOptions: {
           region: 'eu',
