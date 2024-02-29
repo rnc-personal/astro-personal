@@ -7,6 +7,9 @@ export default {
 				'cv-grid-full': '1fr 32px 1fr',
 				'cv-grid-large': '1fr 1fr',
 			},
+			maxWidth: {
+				'128': '44rem',
+			},
 		},
 		screens: {
 			'sm': '320px',

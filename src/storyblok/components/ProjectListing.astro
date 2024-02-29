@@ -5,10 +5,12 @@ import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 const { blok } = Astro.props;
 ---
 
-<section {...storyblokEditable(blok)} class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 content-center">
-    {
-        blok.projects?.map((blok: any) => {
-            return <StoryblokComponent blok={blok} />;
-        })
-    }
+<section
+  {...storyblokEditable(blok)}
+  class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 justify-items-center">
+  {
+    blok.projects?.map((blok: any) => {
+      return <StoryblokComponent blok={blok} />;
+    })
+  }
 </section>
