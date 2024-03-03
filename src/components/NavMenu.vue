@@ -36,7 +36,7 @@
       <a @click="showDropdown = false" href="/">
         <h1
           class="lg:text-7xl md:text-5xl sm:text-4xl leading-snug py-1 selection:font-black text-gray-50 hover:text-yellow-500 transition-colors ease-in-out">
-          HEADING
+          CV
         </h1>
       </a>
 
