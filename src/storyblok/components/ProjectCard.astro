@@ -35,7 +35,7 @@ const techImageMap: TechImageMap = {
 
 <div
   {...storyblokEditable(blok)}
-  class="border bg-card text-card-foreground shadow-sm w-full rounded-xl overflow-hidden">
+  class="border bg-card text-card-foreground shadow-sm w-full rounded-xl overflow-hidden min-w-[20rem]">
   <Image
     src={blok.project_card_header_img.filename}
     alt={blok.project_card_header_img.alt
@@ -47,7 +47,7 @@ const techImageMap: TechImageMap = {
     id="project-card-header-img"
   />
 
-  <div class="p-6">
+  <div class="p-4">
     <div class="space-y-2">
       <h2 class="text-3xl mt-2 text-black hover:text-yellow-500 uppercase">
         {blok.project_name}

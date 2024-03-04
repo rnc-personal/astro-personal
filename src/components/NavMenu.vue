@@ -18,7 +18,7 @@
     </div>
 
     <div
-      class="container xl:px-40 lg:px-32 md:px-16 sm:px-4 px-2 sm:w-full md:mx-auto flex items-center sm:justify-between md:justify-start gap-4">
+      class=" xl:px-40 lg:px-32 md:px-16 sm:px-4 px-2 sm:w-full md:mx-auto flex items-center sm:justify-between md:justify-start gap-4">
       <div class="nav-menu mobile-nav ">
         <div class="toggle" @click="toggleDropdown">
           <svg v-if="!showDropdown" class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -58,6 +58,7 @@
     </div>
   </section>
 </template>
+
 <script>
 import { ref, onMounted } from "vue";
 export default {
@@ -80,6 +81,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .mobile-nav {
   display: none;
