@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 ---
 
 <div class="w-full flex justify-start">
-  <div class="py-2 px-4" onclick="history.back()">
+  <div class="py-2" onclick="history.back()">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="h-4 w-4 my-4 cursor-pointer hover:-translate-x-1 transition-transform fill-gray-400"
@@ -22,7 +22,7 @@ import { Image } from "astro:assets";
   </div>
 </div>
 <div
-  class="border bg-card text-card-foreground shadow-sm w-full rounded-xl overflow-hidden">
+  class="border bg-card text-card-foreground shadow-sm w-full rounded-xl overflow-hidden min-w-[20rem]">
   <Image
     src={blok.project_detail_header_img.filename}
     alt={blok.project_detail_header_img.alt}
