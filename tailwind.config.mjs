@@ -18,5 +18,7 @@ export default {
 			'xl': '1200px',
 		},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography')
+	],
 }
