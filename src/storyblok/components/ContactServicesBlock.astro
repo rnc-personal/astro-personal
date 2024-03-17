@@ -8,7 +8,8 @@ const renderedRichText = renderRichText(blok.contact_detail_body);
 
 <Divider layout="horizontal" />
 <div {...storyblokEditable(blok)} class="container px-4 md:px-6">
-  <div class="flex gap-4 md:gap-2 lg:gap-4 xl:gap-8">
+  <div
+    class="flex gap-4 sm:flex-col sm:items-center md:gap-2 lg:gap-4 xl:gap-8">
     {
       blok.contact_detail_image.filename ? (
         <img
@@ -27,13 +28,12 @@ const renderedRichText = renderRichText(blok.contact_detail_body);
     }
 
     <div class="grid gap-1.5">
-      <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+      <h2 class="text-2xl font-bold tracking-tight sm:text-3xl sm:text-center">
         {blok.contact_detail_name}
       </h2>
-      <p
-        class="max-w-prose text-gray-500 md:text-base/relaxed dark:text-gray-400">
-        <span set:html={renderedRichText} />
-      </p>
+      <div class="max-w-prose text-black md:text-base/relaxed">
+        <span set:html={renderedRichText} class="sm:text-center" />
+      </div>
     </div>
   </div>
 </div>
