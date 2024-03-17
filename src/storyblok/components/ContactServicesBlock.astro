@@ -1,7 +1,9 @@
 ---
-import { storyblokEditable } from "@storyblok/astro";
+import { storyblokEditable, renderRichText } from "@storyblok/astro";
 import Divider from "../../components/Divider.astro";
+
 const { blok } = Astro.props;
+const renderedRichText = renderRichText(blok.contact_detail_body);
 ---
 
 <Divider layout="horizontal" />
@@ -30,7 +32,7 @@ const { blok } = Astro.props;
       </h2>
       <p
         class="max-w-prose text-gray-500 md:text-base/relaxed dark:text-gray-400">
-        {blok.contact_detail_body}
+        <span set:html={renderedRichText} />
       </p>
     </div>
   </div>
