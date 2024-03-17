@@ -20,20 +20,32 @@ const { blok } = Astro.props;
 
     <div class="space-y-1 text-center">
       <h1 class="text-lg font-semibold">{blok.contact_name}</h1>
-      <div class="flex items-center space-x-2 text-sm">
-        <SVG icon="phone" />
-        <span>{blok.contact_number}</span>
-      </div>
+      {
+        blok.contact_number && (
+          <div class="flex items-center space-x-2 text-sm">
+            <SVG icon="phone" />
+            <span>{blok.contact_number}</span>
+          </div>
+        )
+      }
 
-      <div class="flex items-center space-x-2 text-sm">
-        <SVG icon="email" />
-        <span>{blok.contact_email}</span>
-      </div>
+      {
+        blok.contact_email && (
+          <div class="flex items-center space-x-2 text-sm">
+            <SVG icon="email" />
+            <span>{blok.contact_email}</span>
+          </div>
+        )
+      }
 
-      <div class="flex items-center space-x-2 text-sm">
-        <SVG icon="location" />
-        <span>{blok.contact_location}</span>
-      </div>
+      {
+        blok.contact_location && (
+          <div class="flex items-center space-x-2 text-sm">
+            <SVG icon="location" />
+            <span>{blok.contact_location}</span>
+          </div>
+        )
+      }
     </div>
   </div>
 </div>
