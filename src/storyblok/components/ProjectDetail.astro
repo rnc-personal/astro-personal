@@ -6,8 +6,6 @@ const { blok } = Astro.props;
 const renderedDetailsRichText = renderRichText(blok.project_details_body);
 const renderedChallengesRichText = renderRichText(blok.project_challenges_body);
 const renderedExpRichText = renderRichText(blok.project_exp_body);
-
-console.log("Details HTML" + " " + renderedDetailsRichText);
 ---
 
 <div {...storyblokEditable(blok)} class="w-full flex justify-start">
