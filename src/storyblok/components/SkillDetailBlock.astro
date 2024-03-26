@@ -6,7 +6,8 @@ const { blok } = Astro.props;
 
 <Divider layout="horizontal" />
 <div {...storyblokEditable(blok)} class="container px-4 md:px-6">
-  <div class="flex gap-4 items-start md:gap-2 lg:gap-4 xl:gap-8">
+  <div
+    class="flex gap-4 items-start md:gap-2 lg:gap-4 xl:gap-8 sm:flex-col sm:items-center md:flex-row md:items-start md:items-center">
     <img
       src={blok.skill_detail_image.filename}
       width="100"
@@ -16,11 +17,10 @@ const { blok } = Astro.props;
       style="aspect-ratio: 100 / 100; object-fit: contain;"
     />
     <div class="grid gap-1.5">
-      <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+      <h2 class="text-2xl font-bold tracking-tight sm:text-3xl sm:text-center">
         {blok.skill_detail_name}
       </h2>
-      <p
-        class="max-w-prose text-gray-500 md:text-base/relaxed dark:text-gray-400">
+      <p class="max-w-prose text-black md:text-base/relaxed sm:text-center">
         {blok.skill_detail_body}
       </p>
     </div>

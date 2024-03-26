@@ -8,7 +8,7 @@ const renderedChallengesRichText = renderRichText(blok.project_challenges_body);
 const renderedExpRichText = renderRichText(blok.project_exp_body);
 ---
 
-<div {...storyblokEditable(blok)} class="w-full flex justify-start">
+<div {...storyblokEditable(blok)} class="mx-auto flex justify-start">
   <div class="py-2" onclick="history.back()">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ const renderedExpRichText = renderRichText(blok.project_exp_body);
   </div>
 </div>
 <div
-  class="border bg-card text-card-foreground shadow-sm w-full rounded-xl overflow-hidden min-w-[20rem]">
+  class="border bg-card text-card-foreground shadow-sm w-full rounded-xl overflow-hidden min-w-[28rem]">
   <Image
     src={blok.project_detail_header_img.filename}
     alt={blok.project_detail_header_img.alt}
@@ -59,7 +59,7 @@ const renderedExpRichText = renderRichText(blok.project_exp_body);
 
   <div class="divide-y border-gray-200">
     <div
-      class="container grid max-w-5xl items-center justify-center gap-4 px-4 py-4 md:gap-8 md:px-6 md:py-8">
+      class="grid max-w-5xl items-center justify-center gap-4 px-4 py-4 md:gap-8 md:px-6 md:py-8">
       <div class="grid grid-cols-1 items-center justify-center gap-4">
         <div class="space-y-2">
           <h3 class="text-black text-2xl font-bold text-center uppercase">

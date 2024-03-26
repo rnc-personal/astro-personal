@@ -17,7 +17,7 @@ import "@fontsource/poppins";
   <body class="bg-slate-100" transition:animate="none">
     <NavMenu client:only />
     <main
-      class="container w-full sm:px-4 md:px-16 lg:px-24 xl:px-40 px-4 mx-auto my-6 grid grid-cols-1 justify-items-center transition-all"
+      class="container mx-auto sm:px-1 md:px-4 lg:px-16 xl:px-24 my-6 grid grid-cols-1 justify-items-center transition-all"
       transition:animate="slide">
       <slot />
     </main>
@@ -46,6 +46,7 @@ import "@fontsource/poppins";
 
       p {
         color: var(--pgraph-col);
+        margin-bottom: 0.25rem;
       }
 
       h1,
